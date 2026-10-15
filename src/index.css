@@ -1,0 +1,21 @@
+/**
+ * Tailwind v4 is wired in through the Vite plugin (see `vite.config.ts`), so
+ * this stylesheet only needs to pull the framework in and override its theme
+ * tokens — there is no separate `@tailwind base/components/utilities` block.
+ */
+@import 'tailwindcss';
+
+/* Exposed as `font-sans` / `font-mono` utilities and available to plain CSS
+   via `var(--font-sans)`. */
+@theme {
+  --font-sans:
+    ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica,
+    Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+/* Set once here so every element inherits it, including anything Tailwind's
+   preflight does not already cover. */
+html {
+  font-family: var(--font-sans);
+}
